@@ -1,39 +1,68 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# About App Implementation Plan
 
-Welcome,
+This document outlines the user stories, acceptance criteria, model design, and implementation steps for the About app in our Django project.
 
-This is the Code Institute student template for Codeanywhere. If you are using Gitpod then you need [this template](https://github.com/Code-Institute-Org/gitpod-full-template) instead.  We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+## User Stories and Acceptance Criteria
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Codeanywhere and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **August 30th, 2023**
+### For Site Users
 
-## Codeanywhere Reminders
+- **User Story:** As a Site User, I want to click the About link to read about the site so that I can learn more about its background and purpose.
 
-To run a frontend (HTML, CSS, Javascript only) application in Codeanywhere, in the terminal, type:
+- **Acceptance Criteria:**
+  - The navigation menu includes an About link.
+  - Clicking the About link navigates to the About Me page.
+  - The About Me page displays a title, the main content, and the last updated timestamp.
 
-`python3 -m http.server`
+### For Site Admins
 
-A button should appear to click: _Open Preview_ or _Open Browser_.
+- **User Story:** As a Site Admin, I want to create or update the About information so that I can share or modify the site's background and purpose with users.
 
-To run a frontend (HTML, CSS, Javascript only) application in Codeanywhere with no-cache, you can use this alias for `python3 -m http.server`.
+- **Acceptance Criteria:**
+  - There is access to a form in the admin panel to create or update the About Me content.
+  - The form allows for editing the title and content.
+  - The system automatically updates the last modified timestamp upon saving.
+  - Any changes made in the admin panel are immediately reflected on the About page.
 
-`http_server`
+## Model Design
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+The model for the About app will be simple and will be named `About`. It includes the following fields:
 
-A button should appear to click: _Open Preview_ or _Open Browser_.
+- `title` (CharField): A field for the page title.
+- `content` (TextField): A field for the main About Me content.
+- `updated_on` (DateTimeField): A field to auto-update with the current timestamp upon saving changes.
 
-In Codeanywhere you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+## Entity-Relationship Diagram (ERD)
 
-To log into the Heroku toolbelt CLI:
+The ERD for the About model consists of:
 
-1. Log in to your Heroku account and go to _Account Settings_ in the menu under your avatar.
-2. Scroll down to the _API Key_ and click _Reveal_
-3. Copy the key
-4. In Codeanywhere, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+- `About`
+  - `title`: CharField
+  - `content`: TextField
+  - `updated_on`: DateTimeField, auto_now_add=True
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+## Implementation Steps
 
----
+### Creating the App
 
-Happy coding!
+Execute the following command to create the About app:
+
+`bash`
+python manage.py startapp about
+
+
+## Files to Update or Create
+
+- `models.py`: Define the `About` model with `title`, `content`, and `updated_on` fields.
+- `admin.py`: Register the `About` model to enable admin management.
+- `views.py`: Create a view to render the About page.
+- `urls.py` (in the `about` app directory): Set up the URL pattern for the About page.
+- `templates/about/about.html`: Create the template for the About page.
+
+## Project-Level Changes
+
+- Add `about` to the `INSTALLED_APPS` list in `settings.py`.
+- Import and include the `about` app's `urls.py` in the project-level `urls.py` file.
+
+## Base Template Update
+
+- Add an About link to the `base.html` template for site-wide navigation to the About Me page.
