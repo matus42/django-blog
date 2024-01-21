@@ -66,3 +66,6 @@ python manage.py startapp about
 ## Base Template Update
 
 - Add an About link to the `base.html` template for site-wide navigation to the About Me page.
+
+
+ C:\Users\cours\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages
