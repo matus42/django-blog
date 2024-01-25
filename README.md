@@ -69,3 +69,8 @@ python manage.py startapp about
 
 
  C:\Users\cours\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages
+
+ cp -r C:\Users\cours\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages/allauth/templates/* ./templates/
+
+
+ pip3 show django-allauth
