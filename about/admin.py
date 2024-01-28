@@ -19,4 +19,3 @@ class AboutAdmin(SummernoteModelAdmin):
 class CollaborateRequestAdmin(admin.ModelAdmin):
 
     list_display = ('message', 'read',)
-    
